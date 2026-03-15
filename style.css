@@ -1005,6 +1005,7 @@ h4 {
   gap: 1rem;
   text-align: left;
   margin-top: 0.5rem;
+  align-items: start;
 }
 
 .faq__item {
@@ -1056,6 +1057,22 @@ h4 {
   font-size: 0.9rem;
   color: var(--color-text-light);
   line-height: 1.7;
+}
+
+/* Smooth expand/collapse animation */
+.faq__item {
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+
+.faq__body-inner {
+  overflow: hidden;
 }
 
 /* ==========================================================================
