@@ -191,6 +191,48 @@ h4 {
   border-bottom: 1px solid rgba(181, 201, 161, 0.2);
 }
 
+/* -- Language toggle button -- */
+.lang-toggle {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  z-index: 110;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lang-toggle__option {
+  color: var(--color-text-light);
+  font-weight: 300;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.lang-toggle__option--active {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.lang-toggle__divider {
+  color: var(--color-text-light);
+  font-weight: 300;
+  margin: 0 0.05rem;
+}
+
+/* -- Anti-FOUC for language switch -- */
+html.lang-loading body {
+  opacity: 0;
+}
+
 /* -- Hamburger toggle button (mobile only) -- */
 .nav-toggle {
   display: none;

@@ -20,23 +20,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script>
+    if (localStorage.getItem('lang') === 'en') {
+      document.documentElement.classList.add('lang-loading');
+    }
+  </script>
 </head>
 <body>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="main-nav" id="nav">
+    <button class="lang-toggle" id="lang-toggle" aria-label="Switch to English">
+      <span class="lang-toggle__option lang-toggle__option--active" data-lang="de">DE</span>
+      <span class="lang-toggle__divider">/</span>
+      <span class="lang-toggle__option" data-lang="en">EN</span>
+    </button>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
       <span class="nav-toggle__bar"></span>
       <span class="nav-toggle__bar"></span>
       <span class="nav-toggle__bar"></span>
     </button>
     <ul class="nav-list" id="nav-list">
-      <li><a href="#willkommen">Willkommen</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#location">Location</a></li>
-      <li><a href="#ablauf">Ablauf</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#rsvp">Rückmeldung</a></li>
+      <li><a href="#willkommen" data-i18n="nav.willkommen">Willkommen</a></li>
+      <li><a href="#details" data-i18n="nav.details">Details</a></li>
+      <li><a href="#location" data-i18n="nav.location">Location</a></li>
+      <li><a href="#ablauf" data-i18n="nav.ablauf">Ablauf</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="#rsvp" data-i18n="nav.rsvp">Rückmeldung</a></li>
     </ul>
   </nav>
 
@@ -74,46 +84,46 @@
       <circle cx="55" cy="270" r="2.5" fill="#db8f9e" opacity="0.3"/>
     </svg>
     <div class="hero__content animate-on-scroll">
-      <p class="hero__pretext">Wir heiraten!</p>
+      <p class="hero__pretext" data-i18n="hero.pretext">Wir heiraten!</p>
       <h1 class="hero__names">Julia <span class="amp">&amp;</span> Franz</h1>
-      <p class="hero__date">7. August 2026</p>
+      <p class="hero__date" data-i18n="hero.date">7. August 2026</p>
       <p class="hero__venue"><a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergmühle</a> &middot; Kronberg</p>
       <div class="hero__countdown" id="countdown">
         <div class="countdown__item">
           <span class="countdown__number" id="countdown-days">---</span>
-          <span class="countdown__label">Tage</span>
+          <span class="countdown__label" data-i18n="countdown.days">Tage</span>
         </div>
         <div class="countdown__item">
           <span class="countdown__number" id="countdown-hours">--</span>
-          <span class="countdown__label">Stunden</span>
+          <span class="countdown__label" data-i18n="countdown.hours">Stunden</span>
         </div>
         <div class="countdown__item">
           <span class="countdown__number" id="countdown-minutes">--</span>
-          <span class="countdown__label">Minuten</span>
+          <span class="countdown__label" data-i18n="countdown.minutes">Minuten</span>
         </div>
         <div class="countdown__item">
           <span class="countdown__number" id="countdown-seconds">--</span>
-          <span class="countdown__label">Sekunden</span>
+          <span class="countdown__label" data-i18n="countdown.seconds">Sekunden</span>
         </div>
       </div>
-      <a href="#willkommen" class="hero__cta">Mehr erfahren</a>
+      <a href="#willkommen" class="hero__cta" data-i18n="hero.cta">Mehr erfahren</a>
     </div>
   </header>
 
   <!-- ===== WILLKOMMEN ===== -->
   <section class="section section--intro" id="willkommen">
     <div class="container animate-on-scroll">
-      <h2 class="section__title">Willkommen</h2>
+      <h2 class="section__title" data-i18n="welcome.title">Willkommen</h2>
       <div class="section__divider"></div>
-      <p class="intro__text">
+      <p class="intro__text" data-i18n="welcome.greeting">
         Liebe Familie, liebe Freunde,
       </p>
-      <p class="intro__text">
+      <p class="intro__text" data-i18n="welcome.text1">
         Gut Ding braucht Weile &ndash; und deshalb freuen wir uns, dass wir endlich, nach 7 Jahren
         Verlobungszeit, mit euch unsere Hochzeit feiern können! Es wird ein Tag voller Liebe,
         Lachen und unvergesslicher Momente, und wir können es kaum erwarten, ihn mit euch zu teilen.
       </p>
-      <p class="intro__text">
+      <p class="intro__text" data-i18n="welcome.text2">
         Auf dieser Seite findet ihr alle wichtigen Informationen rund um unseren großen Tag.
         Solltet ihr noch Fragen haben, meldet euch jederzeit bei uns!
       </p>
@@ -123,7 +133,7 @@
   <!-- ===== DETAILS ===== -->
   <section class="section section--details" id="details">
     <div class="container animate-on-scroll">
-      <h2 class="section__title">Die Details</h2>
+      <h2 class="section__title" data-i18n="details.title">Die Details</h2>
       <div class="section__divider"></div>
       <div class="details__grid">
         <div class="details__card">
@@ -135,8 +145,8 @@
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
           </div>
-          <h3>Datum</h3>
-          <p class="details__highlight">Freitag, 7. August 2026</p>
+          <h3 data-i18n="details.date_label">Datum</h3>
+          <p class="details__highlight" data-i18n="details.date_value">Freitag, 7. August 2026</p>
         </div>
         <div class="details__card">
           <div class="details__icon">
@@ -145,8 +155,8 @@
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
           </div>
-          <h3>Uhrzeit</h3>
-          <p class="details__highlight">15:00 Uhr</p>
+          <h3 data-i18n="details.time_label">Uhrzeit</h3>
+          <p class="details__highlight" data-i18n="details.time_value">15:00 Uhr</p>
         </div>
         <div class="details__card">
           <div class="details__icon">
@@ -155,7 +165,7 @@
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
           </div>
-          <h3>Location</h3>
+          <h3 data-i18n="details.location_label">Location</h3>
           <p class="details__highlight"><a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergmühle</a></p>
           <p>Am Russbach 1, 2123 Kronberg</p>
         </div>
@@ -166,34 +176,34 @@
   <!-- ===== LOCATION ===== -->
   <section class="section section--location" id="location">
     <div class="container animate-on-scroll">
-      <h2 class="section__title">Die Location</h2>
+      <h2 class="section__title" data-i18n="location.title">Die Location</h2>
       <div class="section__divider"></div>
       <div class="location__content">
         <div class="location__info">
           <h3><a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergmühle</a></h3>
           <p>Am Russbach 1, 2123 Kronberg, Niederösterreich</p>
-          <p>
+          <p data-i18n-html="location.description">
             Die <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergmühle</a> liegt eingebettet im Grünen, nur etwa 20 Minuten
             von Wien entfernt. Ein wunderschönes Anwesen mit verträumtem Rosengarten,
             großem Speisesaal, Garten, Terrasse und Jurte &ndash;
             der perfekte Ort für unsere Feier.
           </p>
 
-          <h4>Anreise mit dem Auto</h4>
-          <p>
+          <h4 data-i18n="location.car_title">Anreise mit dem Auto</h4>
+          <p data-i18n-html="location.car_text">
             Von Wien aus über die B7 Richtung Mistelbach, Abfahrt Schleinbach/Kronberg.
             Parkplätze sind direkt bei der Location vorhanden.
             Mit Taxi oder Uber kostet die Fahrt aus Wien ca. &euro;&nbsp;50,&ndash;.
           </p>
 
-          <h4>Anreise mit den Öffis</h4>
-          <p>
+          <h4 data-i18n="location.transit_title">Anreise mit den Öffis</h4>
+          <p data-i18n-html="location.transit_text">
             Die Bergmühle ist bestens an das Öffi-Netz angebunden.
             S-Bahn Linie S2 ab Wien Leopoldau bis Schleinbach (ca. 16 Min.),
             dann ca. 9 Minuten zu Fuß Richtung Kronberg.
           </p>
 
-          <a href="https://maps.google.com/?q=Stadtflucht+Bergm%C3%BChle+Am+Russbach+1+2123+Kronberg+Austria" target="_blank" rel="noopener" class="btn btn--outline">
+          <a href="https://maps.google.com/?q=Stadtflucht+Bergm%C3%BChle+Am+Russbach+1+2123+Kronberg+Austria" target="_blank" rel="noopener" class="btn btn--outline" data-i18n="location.maps_btn">
             Route in Google Maps öffnen
           </a>
         </div>
@@ -213,47 +223,47 @@
   <!-- ===== ABLAUF ===== -->
   <section class="section section--schedule" id="ablauf">
     <div class="container animate-on-scroll">
-      <h2 class="section__title">Ablauf des Tages</h2>
+      <h2 class="section__title" data-i18n="schedule.title">Ablauf des Tages</h2>
       <div class="section__divider"></div>
       <div class="timeline">
         <div class="timeline__item">
-          <div class="timeline__time">15:00</div>
+          <div class="timeline__time" data-i18n="schedule.time1">15:00</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Ankommen &amp; Empfang</h3>
-            <p>Wir begrüßen euch in der <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergmühle</a> mit Amuse Gueules und Drinks.</p>
+            <h3 data-i18n="schedule.event1">Ankommen &amp; Empfang</h3>
+            <p data-i18n-html="schedule.desc1">Wir begrüßen euch in der <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergmühle</a> mit Amuse Gueules und Drinks.</p>
           </div>
         </div>
         <div class="timeline__item">
-          <div class="timeline__time">16:00</div>
+          <div class="timeline__time" data-i18n="schedule.time2">16:00</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Trauung im Rosengarten</h3>
-            <p>Unsere standesamtliche Trauung findet im verträumten Rosengarten der Bergmühle statt.</p>
+            <h3 data-i18n="schedule.event2">Trauung im Rosengarten</h3>
+            <p data-i18n="schedule.desc2">Unsere standesamtliche Trauung findet im verträumten Rosengarten der Bergmühle statt.</p>
           </div>
         </div>
         <div class="timeline__item">
-          <div class="timeline__time">ab 17:00</div>
+          <div class="timeline__time" data-i18n="schedule.time3">ab 17:00</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Agape &amp; Garten</h3>
-            <p>Gemütliches Beisammensein im Garten &ndash; anstoßen, gratulieren und die Sonne genießen.</p>
+            <h3 data-i18n="schedule.event3">Agape &amp; Garten</h3>
+            <p data-i18n="schedule.desc3">Gemütliches Beisammensein im Garten &ndash; anstoßen, gratulieren und die Sonne genießen.</p>
           </div>
         </div>
         <div class="timeline__item">
-          <div class="timeline__time">19:00</div>
+          <div class="timeline__time" data-i18n="schedule.time4">19:00</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Abendessen</h3>
-            <p>Festliches Dinner auf langen Tafeln im großen Speisesaal &ndash; mit regionalen und saisonalen Köstlichkeiten, auch vegetarisch und vegan.</p>
+            <h3 data-i18n="schedule.event4">Abendessen</h3>
+            <p data-i18n="schedule.desc4">Festliches Dinner auf langen Tafeln im großen Speisesaal &ndash; mit regionalen und saisonalen Köstlichkeiten, auch vegetarisch und vegan.</p>
           </div>
         </div>
         <div class="timeline__item">
-          <div class="timeline__time">~22:00</div>
+          <div class="timeline__time" data-i18n="schedule.time5">~22:00</div>
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <h3>Tortenanschnitt, Party &amp; Bar</h3>
-            <p>Anschnitt der Hochzeitstorte, Eröffnung der Tanzfläche und der Bar &ndash; gefeiert wird, bis der letzte Gast freiwillig geht!</p>
+            <h3 data-i18n="schedule.event5">Tortenanschnitt, Party &amp; Bar</h3>
+            <p data-i18n="schedule.desc5">Anschnitt der Hochzeitstorte, Eröffnung der Tanzfläche und der Bar &ndash; gefeiert wird, bis der letzte Gast freiwillig geht!</p>
           </div>
         </div>
       </div>
@@ -263,12 +273,12 @@
   <!-- ===== FAQ ===== -->
   <section class="section section--faq" id="faq">
     <div class="container animate-on-scroll">
-      <h2 class="section__title">Häufige Fragen</h2>
+      <h2 class="section__title" data-i18n="faq.title">Häufige Fragen</h2>
       <div class="section__divider"></div>
       <div class="faq__grid">
         <details class="faq__item">
-          <summary class="faq__question">Was ist der Dresscode?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q1">Was ist der Dresscode?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a1">
             <p class="faq__answer">
               Legere oder festlich, kommt so, wie ihr euch wohlfühlt.<br>
               Wir freuen uns auf euch, egal ob im Kleid, Anzug oder Jeans!
@@ -276,8 +286,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Gibt es Parkmöglichkeiten?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q2">Gibt es Parkmöglichkeiten?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a2">
             <p class="faq__answer">
               Ja, es gibt ausreichend Parkplätze direkt bei der Location.
               Falls ihr mit mehreren Personen anreist, freuen wir uns über Fahrgemeinschaften.
@@ -285,8 +295,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Was sollen wir schenken?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q3">Was sollen wir schenken?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a3">
             <p class="faq__answer">
               Die größte Freude ist es, mit euch zu feiern! Falls ihr uns dennoch etwas
               schenken möchtet, freuen wir uns über einen Beitrag zu unserer Hochzeit(sreise).
@@ -294,8 +304,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Gibt es Übernachtungsmöglichkeiten?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q4">Gibt es Übernachtungsmöglichkeiten?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a4">
             <p class="faq__answer">
               In der Umgebung gibt es mehrere nette Unterkünfte, alle nur 5 Minuten entfernt.
               Beruft euch bei der Reservierung gerne auf die Stadtflucht Bergmühle:
@@ -311,8 +321,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Sind Kinder willkommen?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q5">Sind Kinder willkommen?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a5">
             <p class="faq__answer">
               Aber natürlich!<br>
                Bitte gebt uns bei der Rückmeldung Bescheid,
@@ -321,8 +331,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Dürfen wir fotografieren?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q6">Dürfen wir fotografieren?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a6">
             <p class="faq__answer">
               Wir freuen uns über eure Schnappschüsse! Während der Trauung bitten
               wir euch aber, die Handys wegzustecken &ndash; unsere Fotografin hält
@@ -331,8 +341,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Gibt es vegetarisches oder veganes Essen?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q7">Gibt es vegetarisches oder veganes Essen?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a7">
             <p class="faq__answer">
               Ja! Beim Abendessen wird es neben Fleisch- und Fischgerichten auch
               vegetarische und vegane Optionen geben. Falls ihr spezielle Allergien
@@ -341,8 +351,8 @@
           </div></div>
         </details>
         <details class="faq__item">
-          <summary class="faq__question">Was passiert bei Schlechtwetter?</summary>
-          <div class="faq__body"><div class="faq__body-inner">
+          <summary class="faq__question" data-i18n="faq.q8">Was passiert bei Schlechtwetter?</summary>
+          <div class="faq__body"><div class="faq__body-inner" data-i18n-html="faq.a8">
             <p class="faq__answer">
               Kein Grund zur Sorge! Sollte das Wetter nicht mitspielen,
               kann die Trauung auch drinnen stattfinden &ndash; die
@@ -358,23 +368,23 @@
   <!-- ===== RSVP ===== -->
   <section class="section section--rsvp" id="rsvp">
     <div class="container animate-on-scroll">
-      <h2 class="section__title">Rückmeldung</h2>
+      <h2 class="section__title" data-i18n="rsvp.title">Rückmeldung</h2>
       <div class="section__divider"></div>
-      <p class="rsvp__text">
+      <p class="rsvp__text" data-i18n-html="rsvp.text">
         Bitte gebt uns bis zum <strong>10. Juni 2026</strong> Bescheid,
         ob ihr dabei sein könnt.
       </p>
       <div class="rsvp__actions">
-        <p class="rsvp__subtitle">Schreibt uns einfach:</p>
-        <a href="mailto:franzdietrich@gmx.at" class="btn btn--primary">
+        <p class="rsvp__subtitle" data-i18n="rsvp.subtitle">Schreibt uns einfach:</p>
+        <a href="mailto:franzdietrich@gmx.at" class="btn btn--primary" data-i18n="rsvp.email_btn">
           Per E-Mail zusagen
         </a>
-        <p class="rsvp__or">oder</p>
-        <a href="tel:+4366460651539" class="btn btn--outline">
+        <p class="rsvp__or" data-i18n="rsvp.or">oder</p>
+        <a href="tel:+4366460651539" class="btn btn--outline" data-i18n="rsvp.phone_btn">
           Anrufen / WhatsApp
         </a>
       </div>
-      <p class="rsvp__note">
+      <p class="rsvp__note" data-i18n="rsvp.note">
         Bitte teilt uns auch mit, ob ihr besondere Ernährungswünsche habt
         und wie viele Personen kommen.
       </p>
@@ -385,13 +395,238 @@
   <footer class="footer" id="footer">
     <div class="container">
       <p class="footer__names">Julia &amp; Franz</p>
-      <p class="footer__date">7. August 2026</p>
-      <p class="footer__message">Wir freuen uns auf euch!</p>
+      <p class="footer__date" data-i18n="footer.date">7. August 2026</p>
+      <p class="footer__message" data-i18n="footer.message">Wir freuen uns auf euch!</p>
       <p class="footer__heart">&hearts;</p>
     </div>
   </footer>
 
   <script>
+    // ===== TRANSLATIONS =====
+    var translations = {
+      de: {
+        'meta.title': 'Julia & Franz \u2013 Unsere Hochzeit | 7. August 2026',
+        'meta.description': 'Hochzeit von Julia und Franz am 7. August 2026 in der Stadtflucht Bergm\u00fchle, Kronberg. Alle Informationen f\u00fcr unsere G\u00e4ste.',
+        'meta.og_title': 'Julia & Franz heiraten!',
+        'meta.og_description': '7. August 2026 | Stadtflucht Bergm\u00fchle, Kronberg',
+        'nav.willkommen': 'Willkommen',
+        'nav.details': 'Details',
+        'nav.location': 'Location',
+        'nav.ablauf': 'Ablauf',
+        'nav.faq': 'FAQ',
+        'nav.rsvp': 'R\u00fcckmeldung',
+        'nav.menu_open': 'Men\u00fc \u00f6ffnen',
+        'nav.menu_close': 'Men\u00fc schlie\u00dfen',
+        'nav.lang_switch': 'Switch to English',
+        'hero.pretext': 'Wir heiraten!',
+        'hero.date': '7. August 2026',
+        'countdown.days': 'Tage',
+        'countdown.hours': 'Stunden',
+        'countdown.minutes': 'Minuten',
+        'countdown.seconds': 'Sekunden',
+        'hero.cta': 'Mehr erfahren',
+        'welcome.title': 'Willkommen',
+        'welcome.greeting': 'Liebe Familie, liebe Freunde,',
+        'welcome.text1': 'Gut Ding braucht Weile \u2013 und deshalb freuen wir uns, dass wir endlich, nach 7 Jahren Verlobungszeit, mit euch unsere Hochzeit feiern k\u00f6nnen! Es wird ein Tag voller Liebe, Lachen und unvergesslicher Momente, und wir k\u00f6nnen es kaum erwarten, ihn mit euch zu teilen.',
+        'welcome.text2': 'Auf dieser Seite findet ihr alle wichtigen Informationen rund um unseren gro\u00dfen Tag. Solltet ihr noch Fragen haben, meldet euch jederzeit bei uns!',
+        'details.title': 'Die Details',
+        'details.date_label': 'Datum',
+        'details.date_value': 'Freitag, 7. August 2026',
+        'details.time_label': 'Uhrzeit',
+        'details.time_value': '15:00 Uhr',
+        'details.location_label': 'Location',
+        'location.title': 'Die Location',
+        'location.description': 'Die <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergm\u00fchle</a> liegt eingebettet im Gr\u00fcnen, nur etwa 20 Minuten von Wien entfernt. Ein wundersch\u00f6nes Anwesen mit vertr\u00e4umtem Rosengarten, gro\u00dfem Speisesaal, Garten, Terrasse und Jurte \u2013 der perfekte Ort f\u00fcr unsere Feier.',
+        'location.car_title': 'Anreise mit dem Auto',
+        'location.car_text': 'Von Wien aus \u00fcber die B7 Richtung Mistelbach, Abfahrt Schleinbach/Kronberg. Parkpl\u00e4tze sind direkt bei der Location vorhanden. Mit Taxi oder Uber kostet die Fahrt aus Wien ca. \u20ac\u00a050,\u2013.',
+        'location.transit_title': 'Anreise mit den \u00d6ffis',
+        'location.transit_text': 'Die Bergm\u00fchle ist bestens an das \u00d6ffi-Netz angebunden. S-Bahn Linie S2 ab Wien Leopoldau bis Schleinbach (ca. 16 Min.), dann ca. 9 Minuten zu Fu\u00df Richtung Kronberg.',
+        'location.maps_btn': 'Route in Google Maps \u00f6ffnen',
+        'schedule.title': 'Ablauf des Tages',
+        'schedule.time1': '15:00',
+        'schedule.event1': 'Ankommen & Empfang',
+        'schedule.desc1': 'Wir begr\u00fc\u00dfen euch in der <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergm\u00fchle</a> mit Amuse Gueules und Drinks.',
+        'schedule.time2': '16:00',
+        'schedule.event2': 'Trauung im Rosengarten',
+        'schedule.desc2': 'Unsere standesamtliche Trauung findet im vertr\u00e4umten Rosengarten der Bergm\u00fchle statt.',
+        'schedule.time3': 'ab 17:00',
+        'schedule.event3': 'Agape & Garten',
+        'schedule.desc3': 'Gem\u00fctliches Beisammensein im Garten \u2013 ansto\u00dfen, gratulieren und die Sonne genie\u00dfen.',
+        'schedule.time4': '19:00',
+        'schedule.event4': 'Abendessen',
+        'schedule.desc4': 'Festliches Dinner auf langen Tafeln im gro\u00dfen Speisesaal \u2013 mit regionalen und saisonalen K\u00f6stlichkeiten, auch vegetarisch und vegan.',
+        'schedule.time5': '~22:00',
+        'schedule.event5': 'Tortenanschnitt, Party & Bar',
+        'schedule.desc5': 'Anschnitt der Hochzeitstorte, Er\u00f6ffnung der Tanzfl\u00e4che und der Bar \u2013 gefeiert wird, bis der letzte Gast freiwillig geht!',
+        'faq.title': 'H\u00e4ufige Fragen',
+        'faq.q1': 'Was ist der Dresscode?',
+        'faq.a1': '<p class="faq__answer">Legere oder festlich, kommt so, wie ihr euch wohlf\u00fchlt.<br>Wir freuen uns auf euch, egal ob im Kleid, Anzug oder Jeans!</p>',
+        'faq.q2': 'Gibt es Parkm\u00f6glichkeiten?',
+        'faq.a2': '<p class="faq__answer">Ja, es gibt ausreichend Parkpl\u00e4tze direkt bei der Location. Falls ihr mit mehreren Personen anreist, freuen wir uns \u00fcber Fahrgemeinschaften.</p>',
+        'faq.q3': 'Was sollen wir schenken?',
+        'faq.a3': '<p class="faq__answer">Die gr\u00f6\u00dfte Freude ist es, mit euch zu feiern! Falls ihr uns dennoch etwas schenken m\u00f6chtet, freuen wir uns \u00fcber einen Beitrag zu unserer Hochzeit(sreise).</p>',
+        'faq.q4': 'Gibt es \u00dcbernachtungsm\u00f6glichkeiten?',
+        'faq.a4': '<p class="faq__answer">In der Umgebung gibt es mehrere nette Unterk\u00fcnfte, alle nur 5 Minuten entfernt. Beruft euch bei der Reservierung gerne auf die Stadtflucht Bergm\u00fchle:</p><ul class="faq__answer"><li><strong>Hotel Klaus</strong>, Wolkersdorf \u2013 Tel. 02245/2224-0, <a href="mailto:info@hotel-klaus.at">info@hotel-klaus.at</a></li><li><strong>Landgasthof Aprea</strong>, Schleinbach \u2013 Tel. 02245/3740, <a href="mailto:ulli@mutti.at">ulli@mutti.at</a> (Frau Ulli Aprea)</li><li><strong>Hotel Stich</strong>, Manhartsbrunn \u2013 Tel. 02245/3819, <a href="mailto:hotel@stich.at">hotel@stich.at</a></li></ul><p class="faq__answer">Bitte reserviert fr\u00fchzeitig, da es im Sommer schnell ausgebucht sein kann.</p>',
+        'faq.q5': 'Sind Kinder willkommen?',
+        'faq.a5': '<p class="faq__answer">Aber nat\u00fcrlich!<br>Bitte gebt uns bei der R\u00fcckmeldung Bescheid, wie viele Kinder ihr mitbringt und wie alt sie sind, damit wir entsprechend planen k\u00f6nnen.</p>',
+        'faq.q6': 'D\u00fcrfen wir fotografieren?',
+        'faq.a6': '<p class="faq__answer">Wir freuen uns \u00fcber eure Schnappsch\u00fcsse! W\u00e4hrend der Trauung bitten wir euch aber, die Handys wegzustecken \u2013 unsere Fotografin h\u00e4lt alles f\u00fcr euch fest.</p>',
+        'faq.q7': 'Gibt es vegetarisches oder veganes Essen?',
+        'faq.a7': '<p class="faq__answer">Ja! Beim Abendessen wird es neben Fleisch- und Fischgerichten auch vegetarische und vegane Optionen geben. Falls ihr spezielle Allergien oder Unvertr\u00e4glichkeiten habt, gebt uns bitte bei der R\u00fcckmeldung Bescheid.</p>',
+        'faq.q8': 'Was passiert bei Schlechtwetter?',
+        'faq.a8': '<p class="faq__answer">Kein Grund zur Sorge! Sollte das Wetter nicht mitspielen, kann die Trauung auch drinnen stattfinden \u2013 die Bergm\u00fchle bietet wundersch\u00f6ne Innenr\u00e4ume als Alternative. Gefeiert wird so oder so!</p>',
+        'rsvp.title': 'R\u00fcckmeldung',
+        'rsvp.text': 'Bitte gebt uns bis zum <strong>10. Juni 2026</strong> Bescheid, ob ihr dabei sein k\u00f6nnt.',
+        'rsvp.subtitle': 'Schreibt uns einfach:',
+        'rsvp.email_btn': 'Per E-Mail zusagen',
+        'rsvp.or': 'oder',
+        'rsvp.phone_btn': 'Anrufen / WhatsApp',
+        'rsvp.note': 'Bitte teilt uns auch mit, ob ihr besondere Ern\u00e4hrungsw\u00fcnsche habt und wie viele Personen kommen.',
+        'footer.date': '7. August 2026',
+        'footer.message': 'Wir freuen uns auf euch!'
+      },
+      en: {
+        'meta.title': 'Julia & Franz \u2013 Our Wedding | August 7, 2026',
+        'meta.description': 'Wedding of Julia and Franz on August 7, 2026 at Stadtflucht Bergm\u00fchle, Kronberg. All information for our guests.',
+        'meta.og_title': 'Julia & Franz are getting married!',
+        'meta.og_description': 'August 7, 2026 | Stadtflucht Bergm\u00fchle, Kronberg',
+        'nav.willkommen': 'Welcome',
+        'nav.details': 'Details',
+        'nav.location': 'Venue',
+        'nav.ablauf': 'Schedule',
+        'nav.faq': 'FAQ',
+        'nav.rsvp': 'RSVP',
+        'nav.menu_open': 'Open menu',
+        'nav.menu_close': 'Close menu',
+        'nav.lang_switch': 'Auf Deutsch wechseln',
+        'hero.pretext': "We're getting married!",
+        'hero.date': 'August 7, 2026',
+        'countdown.days': 'Days',
+        'countdown.hours': 'Hours',
+        'countdown.minutes': 'Minutes',
+        'countdown.seconds': 'Seconds',
+        'hero.cta': 'Learn more',
+        'welcome.title': 'Welcome',
+        'welcome.greeting': 'Dear family, dear friends,',
+        'welcome.text1': 'Good things take time \u2013 and so we are thrilled that after 7 years of engagement, we can finally celebrate our wedding with you! It will be a day full of love, laughter, and unforgettable moments, and we can\u2019t wait to share it with you.',
+        'welcome.text2': 'On this page you\u2019ll find all the important information about our big day. If you have any questions, don\u2019t hesitate to reach out!',
+        'details.title': 'The Details',
+        'details.date_label': 'Date',
+        'details.date_value': 'Friday, August 7, 2026',
+        'details.time_label': 'Time',
+        'details.time_value': '3:00 PM',
+        'details.location_label': 'Venue',
+        'location.title': 'The Venue',
+        'location.description': 'The <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergm\u00fchle</a> is nestled in greenery, just about 20 minutes from Vienna. A beautiful estate with a dreamy rose garden, large dining hall, garden, terrace, and yurt \u2013 the perfect place for our celebration.',
+        'location.car_title': 'Getting there by car',
+        'location.car_text': 'From Vienna via the B7 towards Mistelbach, exit at Schleinbach/Kronberg. Parking is available directly at the venue. A taxi or Uber from Vienna costs approx. \u20ac\u00a050.',
+        'location.transit_title': 'Public transport',
+        'location.transit_text': 'The Bergm\u00fchle is well connected to public transport. S-Bahn line S2 from Wien Leopoldau to Schleinbach (approx. 16 min), then about 9 minutes on foot towards Kronberg.',
+        'location.maps_btn': 'Open route in Google Maps',
+        'schedule.title': 'Schedule',
+        'schedule.time1': '3:00 PM',
+        'schedule.event1': 'Arrival & Welcome',
+        'schedule.desc1': 'We welcome you at the <a href="https://www.stadtfluchtbergmuehle.at/" target="_blank" rel="noopener">Stadtflucht Bergm\u00fchle</a> with amuse-bouches and drinks.',
+        'schedule.time2': '4:00 PM',
+        'schedule.event2': 'Ceremony in the Rose Garden',
+        'schedule.desc2': 'Our civil ceremony takes place in the dreamy rose garden of the Bergm\u00fchle.',
+        'schedule.time3': 'from 5:00 PM',
+        'schedule.event3': 'Drinks & Garden',
+        'schedule.desc3': 'Relaxed gathering in the garden \u2013 toasting, congratulating, and enjoying the sunshine.',
+        'schedule.time4': '7:00 PM',
+        'schedule.event4': 'Dinner',
+        'schedule.desc4': 'Festive dinner on long tables in the grand dining hall \u2013 featuring regional and seasonal delicacies, including vegetarian and vegan options.',
+        'schedule.time5': '~10:00 PM',
+        'schedule.event5': 'Cake Cutting, Party & Bar',
+        'schedule.desc5': 'Cutting the wedding cake, opening the dance floor and the bar \u2013 we\u2019ll celebrate until the last guest leaves voluntarily!',
+        'faq.title': 'FAQ',
+        'faq.q1': "What's the dress code?",
+        'faq.a1': '<p class="faq__answer">Casual or formal, come as you feel comfortable.<br>We look forward to seeing you, whether in a dress, suit, or jeans!</p>',
+        'faq.q2': 'Is there parking?',
+        'faq.a2': '<p class="faq__answer">Yes, there is ample parking directly at the venue. If you\u2019re coming with others, we\u2019d appreciate carpooling.</p>',
+        'faq.q3': 'What should we give as a gift?',
+        'faq.a3': '<p class="faq__answer">The greatest joy is celebrating with you! If you\u2019d still like to give us something, we\u2019d be happy about a contribution to our wedding (trip).</p>',
+        'faq.q4': 'Are there accommodation options?',
+        'faq.a4': '<p class="faq__answer">There are several nice accommodations nearby, all just 5 minutes away. Feel free to mention the Stadtflucht Bergm\u00fchle when booking:</p><ul class="faq__answer"><li><strong>Hotel Klaus</strong>, Wolkersdorf \u2013 Tel. 02245/2224-0, <a href="mailto:info@hotel-klaus.at">info@hotel-klaus.at</a></li><li><strong>Landgasthof Aprea</strong>, Schleinbach \u2013 Tel. 02245/3740, <a href="mailto:ulli@mutti.at">ulli@mutti.at</a> (Frau Ulli Aprea)</li><li><strong>Hotel Stich</strong>, Manhartsbrunn \u2013 Tel. 02245/3819, <a href="mailto:hotel@stich.at">hotel@stich.at</a></li></ul><p class="faq__answer">Please book early, as accommodations can fill up quickly in summer.</p>',
+        'faq.q5': 'Are children welcome?',
+        'faq.a5': '<p class="faq__answer">Of course!<br>Please let us know in your RSVP how many children you\u2019re bringing and their ages, so we can plan accordingly.</p>',
+        'faq.q6': 'Can we take photos?',
+        'faq.a6': '<p class="faq__answer">We love your snapshots! However, during the ceremony, we ask you to put away your phones \u2013 our photographer will capture everything for you.</p>',
+        'faq.q7': 'Is there vegetarian or vegan food?',
+        'faq.a7': '<p class="faq__answer">Yes! At dinner, in addition to meat and fish dishes, there will also be vegetarian and vegan options. If you have any special allergies or intolerances, please let us know in your RSVP.</p>',
+        'faq.q8': 'What happens in bad weather?',
+        'faq.a8': '<p class="faq__answer">No need to worry! If the weather doesn\u2019t cooperate, the ceremony can also take place indoors \u2013 the Bergm\u00fchle offers beautiful indoor spaces as an alternative. We\u2019ll celebrate either way!</p>',
+        'rsvp.title': 'RSVP',
+        'rsvp.text': 'Please let us know by <strong>June 10, 2026</strong> whether you can make it.',
+        'rsvp.subtitle': 'Simply reach out:',
+        'rsvp.email_btn': 'RSVP by Email',
+        'rsvp.or': 'or',
+        'rsvp.phone_btn': 'Call / WhatsApp',
+        'rsvp.note': 'Please also let us know if you have any dietary requirements and how many people are coming.',
+        'footer.date': 'August 7, 2026',
+        'footer.message': "We can't wait to see you!"
+      }
+    };
+
+    var currentLang = localStorage.getItem('lang') || 'de';
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      var t = translations[lang];
+
+      // Swap textContent for data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      // Swap innerHTML for data-i18n-html elements (trusted, hardcoded translation strings only)
+      document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      // Update toggle active state
+      document.querySelectorAll('.lang-toggle__option').forEach(function (opt) {
+        opt.classList.toggle('lang-toggle__option--active', opt.getAttribute('data-lang') === lang);
+      });
+
+      // Update toggle aria-label
+      document.getElementById('lang-toggle').setAttribute('aria-label', t['nav.lang_switch']);
+
+      // Update nav toggle aria-label based on current open/close state
+      var navEl = document.getElementById('nav');
+      var navToggle = document.getElementById('nav-toggle');
+      var isOpen = navEl.classList.contains('nav-open');
+      navToggle.setAttribute('aria-label', isOpen ? t['nav.menu_close'] : t['nav.menu_open']);
+
+      // Update meta tags
+      document.title = t['meta.title'];
+      var descMeta = document.querySelector('meta[name="description"]');
+      if (descMeta) descMeta.setAttribute('content', t['meta.description']);
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', t['meta.og_title']);
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', t['meta.og_description']);
+
+      // Remove anti-FOUC class
+      document.documentElement.classList.remove('lang-loading');
+    }
+
+    document.getElementById('lang-toggle').addEventListener('click', function () {
+      applyLanguage(currentLang === 'de' ? 'en' : 'de');
+    });
+
+    // Apply stored language on load
+    if (currentLang !== 'de') {
+      applyLanguage(currentLang);
+    } else {
+      document.documentElement.classList.remove('lang-loading');
+    }
+
     // ===== COUNTDOWN TIMER =====
     (function () {
       const weddingDate = new Date('2026-08-07T15:00:00+02:00');
@@ -470,7 +705,6 @@
       var hero = document.getElementById('hero');
 
       var heroObserver = new IntersectionObserver(function (entries) {
-        // When hero is not intersecting (scrolled past), add scrolled class
         nav.classList.toggle('nav-scrolled', !entries[0].isIntersecting);
       }, { threshold: 0 });
 
@@ -486,15 +720,16 @@
       toggle.addEventListener('click', function () {
         var isOpen = nav.classList.toggle('nav-open');
         toggle.setAttribute('aria-expanded', isOpen);
-        toggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+        toggle.setAttribute('aria-label', isOpen
+          ? translations[currentLang]['nav.menu_close']
+          : translations[currentLang]['nav.menu_open']);
       });
 
-      // Close menu when a link is clicked
       navList.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
           nav.classList.remove('nav-open');
           toggle.setAttribute('aria-expanded', 'false');
-          toggle.setAttribute('aria-label', 'Menü öffnen');
+          toggle.setAttribute('aria-label', translations[currentLang]['nav.menu_open']);
         });
       });
     })();
@@ -508,7 +743,6 @@
           e.preventDefault();
 
           if (detail.open) {
-            // Closing: animate first, then remove open
             body.style.gridTemplateRows = '0fr';
             body.addEventListener('transitionend', function handler() {
               body.removeEventListener('transitionend', handler);
@@ -516,7 +750,6 @@
               body.style.gridTemplateRows = '';
             });
           } else {
-            // Opening: set open, force 0fr, then animate to 1fr
             detail.setAttribute('open', '');
             body.style.gridTemplateRows = '0fr';
             requestAnimationFrame(function () {
