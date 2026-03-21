@@ -374,20 +374,43 @@
         Bitte gebt uns bis zum <strong>10. Juni 2026</strong> Bescheid,
         ob ihr dabei sein könnt.
       </p>
-      <div class="rsvp__actions">
-        <p class="rsvp__subtitle" data-i18n="rsvp.subtitle">Schreibt uns einfach:</p>
-        <a href="mailto:franzdietrich@gmx.at" class="btn btn--primary" data-i18n="rsvp.email_btn">
-          Per E-Mail zusagen
-        </a>
-        <p class="rsvp__or" data-i18n="rsvp.or">oder</p>
-        <a href="tel:+4366460651539" class="btn btn--outline" data-i18n="rsvp.phone_btn">
-          Anrufen / WhatsApp
-        </a>
-      </div>
-      <p class="rsvp__note" data-i18n="rsvp.note">
-        Bitte teilt uns auch mit, ob ihr besondere Ernährungswünsche habt
-        und wie viele Personen kommen.
-      </p>
+      <form action="https://formspree.io/f/myknawrz" method="POST" class="rsvp__form" novalidate>
+        <input type="hidden" name="_subject" value="Neue Rückmeldung von der Hochzeitswebsite">
+
+        <fieldset class="rsvp__field rsvp__radio-group">
+          <legend class="rsvp__label" data-i18n="rsvp.label_attendance">Könnt ihr kommen?</legend>
+          <label class="rsvp__radio-label">
+            <input type="radio" name="Zusage" value="Ja" required>
+            <span data-i18n="rsvp.attendance_yes">Ich komme gerne!</span>
+          </label>
+          <label class="rsvp__radio-label">
+            <input type="radio" name="Zusage" value="Nein" required>
+            <span data-i18n="rsvp.attendance_no">Leider kann ich nicht</span>
+          </label>
+        </fieldset>
+
+        <div class="rsvp__field">
+          <label class="rsvp__label" for="rsvp-name" data-i18n="rsvp.label_name">Name</label>
+          <input class="rsvp__input" type="text" id="rsvp-name" name="Name" required>
+        </div>
+
+        <div class="rsvp__field">
+          <label class="rsvp__label" for="rsvp-email" data-i18n="rsvp.label_email">E-Mail</label>
+          <input class="rsvp__input" type="email" id="rsvp-email" name="Email" required>
+        </div>
+
+        <div class="rsvp__field">
+          <label class="rsvp__label" for="rsvp-phone" data-i18n="rsvp.label_phone">Telefonnummer</label>
+          <input class="rsvp__input" type="tel" id="rsvp-phone" name="Telefon" required pattern="^\+?[0-9\s]+$">
+        </div>
+
+        <div class="rsvp__field">
+          <label class="rsvp__label" for="rsvp-message" data-i18n="rsvp.label_message">Nachricht</label>
+          <textarea class="rsvp__textarea" id="rsvp-message" name="Nachricht" rows="4" data-i18n-placeholder="rsvp.placeholder_message" placeholder="z.B. Ich komme mit +1, wir bringen 2 Kinder mit (3 und 5 Jahre), vegetarisch, Allergien..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary rsvp__submit" data-i18n="rsvp.submit">Rückmeldung absenden</button>
+      </form>
     </div>
   </section>
 
@@ -477,11 +500,19 @@
         'faq.a8': '<p class="faq__answer">Kein Grund zur Sorge! Sollte das Wetter nicht mitspielen, kann die Trauung auch drinnen stattfinden \u2013 die Bergm\u00fchle bietet wundersch\u00f6ne Innenr\u00e4ume als Alternative. Gefeiert wird so oder so!</p>',
         'rsvp.title': 'R\u00fcckmeldung',
         'rsvp.text': 'Bitte gebt uns bis zum <strong>10. Juni 2026</strong> Bescheid, ob ihr dabei sein k\u00f6nnt.',
-        'rsvp.subtitle': 'Schreibt uns einfach:',
-        'rsvp.email_btn': 'Per E-Mail zusagen',
-        'rsvp.or': 'oder',
-        'rsvp.phone_btn': 'Anrufen / WhatsApp',
-        'rsvp.note': 'Bitte teilt uns auch mit, ob ihr besondere Ern\u00e4hrungsw\u00fcnsche habt und wie viele Personen kommen.',
+        'rsvp.label_attendance': 'K\u00f6nnt ihr kommen?',
+        'rsvp.attendance_yes': 'Ich komme gerne!',
+        'rsvp.attendance_no': 'Leider kann ich nicht',
+        'rsvp.label_name': 'Name',
+        'rsvp.label_email': 'E-Mail',
+        'rsvp.label_phone': 'Telefonnummer',
+        'rsvp.label_message': 'Nachricht',
+        'rsvp.placeholder_message': 'z.B. Ich komme mit +1, wir bringen 2 Kinder mit (3 und 5 Jahre), vegetarisch, Allergien...',
+        'rsvp.submit': 'R\u00fcckmeldung absenden',
+        'rsvp.error_required': 'Bitte f\u00fcllt dieses Feld aus.',
+        'rsvp.error_email': 'Bitte gebt eine g\u00fcltige E-Mail-Adresse ein.',
+        'rsvp.error_phone': 'Bitte gebt eine g\u00fcltige Telefonnummer ein (nur Zahlen, optional + am Anfang).',
+        'rsvp.error_attendance': 'Bitte w\u00e4hlt eine Option.',
         'footer.date': '7. August 2026',
         'footer.message': 'Wir freuen uns auf euch!'
       },
@@ -558,11 +589,19 @@
         'faq.a8': '<p class="faq__answer">No need to worry! If the weather doesn\u2019t cooperate, the ceremony can also take place indoors \u2013 the Bergm\u00fchle offers beautiful indoor spaces as an alternative. We\u2019ll celebrate either way!</p>',
         'rsvp.title': 'RSVP',
         'rsvp.text': 'Please let us know by <strong>June 10, 2026</strong> whether you can make it.',
-        'rsvp.subtitle': 'Simply reach out:',
-        'rsvp.email_btn': 'RSVP by Email',
-        'rsvp.or': 'or',
-        'rsvp.phone_btn': 'Call / WhatsApp',
-        'rsvp.note': 'Please also let us know if you have any dietary requirements and how many people are coming.',
+        'rsvp.label_attendance': 'Can you make it?',
+        'rsvp.attendance_yes': "I'll be there!",
+        'rsvp.attendance_no': "Unfortunately I can't make it",
+        'rsvp.label_name': 'Name',
+        'rsvp.label_email': 'Email',
+        'rsvp.label_phone': 'Phone number',
+        'rsvp.label_message': 'Message',
+        'rsvp.placeholder_message': 'e.g. Coming with +1, bringing 2 kids (ages 3 and 5), vegetarian, allergies...',
+        'rsvp.submit': 'Send RSVP',
+        'rsvp.error_required': 'Please fill out this field.',
+        'rsvp.error_email': 'Please enter a valid email address.',
+        'rsvp.error_phone': 'Please enter a valid phone number (digits only, optional + at the start).',
+        'rsvp.error_attendance': 'Please select an option.',
         'footer.date': 'August 7, 2026',
         'footer.message': "We can't wait to see you!"
       }
@@ -587,6 +626,12 @@
       document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
         var key = el.getAttribute('data-i18n-html');
         if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      // Swap placeholder for data-i18n-placeholder elements
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-placeholder');
+        if (t[key] !== undefined) el.placeholder = t[key];
       });
 
       // Update toggle active state
@@ -731,6 +776,101 @@
           toggle.setAttribute('aria-expanded', 'false');
           toggle.setAttribute('aria-label', translations[currentLang]['nav.menu_open']);
         });
+      });
+    })();
+
+    // ===== RSVP FORM VALIDATION =====
+    (function () {
+      var form = document.querySelector('.rsvp__form');
+      if (!form) return;
+
+      function getErrorKey(input) {
+        if (input.type === 'email') return 'rsvp.error_email';
+        if (input.type === 'tel') return 'rsvp.error_phone';
+        if (input.type === 'radio') return 'rsvp.error_attendance';
+        return 'rsvp.error_required';
+      }
+
+      function showError(field, message) {
+        field.classList.add('rsvp__field--error');
+        var existing = field.querySelector('.rsvp__error');
+        if (existing) {
+          existing.textContent = message;
+          return;
+        }
+        var span = document.createElement('span');
+        span.className = 'rsvp__error';
+        span.textContent = message;
+        field.appendChild(span);
+      }
+
+      function clearError(field) {
+        field.classList.remove('rsvp__field--error');
+        var existing = field.querySelector('.rsvp__error');
+        if (existing) existing.remove();
+      }
+
+      function validateField(field) {
+        var input = field.querySelector('input, textarea');
+        if (!input) return true;
+
+        // Radio group: check if any radio in the group is checked
+        if (input.type === 'radio') {
+          var radios = field.querySelectorAll('input[type="radio"]');
+          var checked = Array.prototype.some.call(radios, function (r) { return r.checked; });
+          if (!checked) {
+            showError(field, translations[currentLang][getErrorKey(input)]);
+            return false;
+          }
+          clearError(field);
+          return true;
+        }
+
+        if (!input.checkValidity()) {
+          showError(field, translations[currentLang][getErrorKey(input)]);
+          return false;
+        }
+
+        clearError(field);
+        return true;
+      }
+
+      var submitted = false;
+
+      // Validate on submit
+      form.addEventListener('submit', function (e) {
+        submitted = true;
+        var fields = form.querySelectorAll('.rsvp__field');
+        var valid = true;
+        var firstInvalid = null;
+        fields.forEach(function (field) {
+          if (!validateField(field)) {
+            valid = false;
+            if (!firstInvalid) firstInvalid = field;
+          }
+        });
+        if (!valid) {
+          e.preventDefault();
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      // Re-validate on input change only after first submit attempt
+      form.addEventListener('input', function (e) {
+        if (!submitted) return;
+        var field = e.target.closest('.rsvp__field');
+        if (field) validateField(field);
+      });
+      form.addEventListener('change', function (e) {
+        if (!submitted) return;
+        var field = e.target.closest('.rsvp__field');
+        if (field) validateField(field);
+      });
+
+      // Restrict phone input to digits, +, and spaces
+      var phoneInput = document.getElementById('rsvp-phone');
+      phoneInput.addEventListener('input', function () {
+        this.value = this.value.replace(/(?!^\+)[^\d\s]/g, '');
       });
     })();
 
